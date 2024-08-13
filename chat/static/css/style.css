@@ -1,0 +1,146 @@
+body {
+    background: linear-gradient(to right, #021526, #03346E);
+    color: white;
+    padding: 10rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  --bs-gutter-x: 0;
+}
+
+.header {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+.emailadd{
+    margin-top: 1rem;
+}
+.pswd{
+    margin-top: 1rem;
+}
+#firstname{
+    margin-top: 0.5rem;
+    width: 15vw;
+}
+
+#lastname{
+    margin-top: 0.5rem;
+    width: 15vw;
+}
+
+#emailaddress{
+    margin-top: 0.5rem;
+    width: 35vw;
+}
+
+#password{
+    margin-top: 0.5rem;
+    width: 35vw;
+}
+
+/*.login-container {
+    text-align: center;
+    margin-top: 20px;
+}*/
+
+.btn-custom {
+    width: 20rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    display: block; /* Make button block level for full width */
+    margin: 0 auto; /* Center align buttons */
+}
+
+/* Log In button styles */
+.btn-login {
+    background-color:#89CFF0; /* Blue shade */
+    border-color: #d9d9d9;
+    color: white;
+    border-radius: 4rem;;
+    width: 7rem;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Sign Up button styles */
+.btn-signup {
+    background-color: #4c8cff; /* Slightly lighter blue */
+    border-color: #4c8cff;
+    color: #fff;
+    border-radius: 4rem;
+    width: 7rem;
+}
+
+.btn-signup:hover {
+    background-color: #006bb3; /* Darker shade for hover */
+    border-color: #006bb3;
+}
+
+/* Container styles */
+.login-container {
+    text-align: center; /* Center align text and button */
+    margin-top: 20px; /* Space above the container */
+}
+
+.login-container a.btn-primary {
+    margin-bottom: 2rem; /* Space between buttons */
+}
+
+.image-container{
+    text-align: right;
+     margin-top: 20px;
+}
+.bgimage img {
+    width: 20vw; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Ensure that Bootstrap styles are correctly overriding any other styles */
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+/* ================= LOGIN PAGE ====================== */
+/* Center elements in the container */
+.middle-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form-container{
+    background: white;
+}
+
+.btn-block{
+    margin-top: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
