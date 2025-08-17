@@ -78,7 +78,7 @@ setInterval(function(){
     $.ajax({
         type: 'GET',
         url: "/getMessages/{{room}}/",      // hits Django view for this room's messages via urls.py
-        success: function(response){
+        success: function(response){       //  This is a callback function that runs only if the server responds successfully (HTTP status 200)..
             console.log(response);
             $("#display").empty();        // clears the message area (div id="display") before re-adding updated messages.
             /* For each message: Create an HTML string with user, message text, and date.
@@ -168,7 +168,7 @@ setInterval(function(){
           message:$('#message').val(),       // get the message typed by user
         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
       },
-      success: function(data){           // This runs when backend responds successfully, HttpResponse() from Django is exactly what triggers this.
+      success: function(data){        // This runs when backend responds successfully, HttpResponse() or JSONResponse() from Django is exactly what triggers this.
       }
     });
 
