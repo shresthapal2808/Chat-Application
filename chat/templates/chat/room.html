@@ -142,7 +142,7 @@ setInterval(function(){
     </style>
 
     <form id="post-form">
-        {% csrf_token %}
+        {% csrf_token %}     
         <input type="hidden" name="username" id="username" value="{{username}}"/>
         <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
         <input type="text" name="message" id="message" width="100px"/>
@@ -166,7 +166,7 @@ setInterval(function(){
           username:$('#username').val(),    // get value from hidden input id="username"
           room_id:$('#room_id').val(),      // get room id (hidden field)
           message:$('#message').val(),       // get the message typed by user
-        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),     // A secret passcode Django needs to trust my form, otherwise it rejects it 
       },
       success: function(data){        // This runs when backend responds successfully, HttpResponse() or JSONResponse() from Django is exactly what triggers this.
       }
