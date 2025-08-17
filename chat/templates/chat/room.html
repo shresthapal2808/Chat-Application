@@ -73,25 +73,27 @@ body {
 
 <script>
 $(document).ready(function(){
-
+  // run this code every 1 second (1000 ms)
 setInterval(function(){
     $.ajax({
         type: 'GET',
-        url : "/getMessages/{{room}}/",
+        url: "/getMessages/{{room}}/",      // hits Django view for this room's messages via urls.py
         success: function(response){
             console.log(response);
-            $("#display").empty();
-            for (var key in response.messages)
+            $("#display").empty();        // clears the message area (div id="display") before re-adding updated messages.
+            /* For each message: Create an HTML string with user, message text, and date.
+            Append it to #display.*/
+            for (var key in response.messages)   // response.messages is expected to be a list/array of messages (from backend).
             {
                 var temp="<div class='container darker'><b>"+response.messages[key].user+"</b><p>"+response.messages[key].value+"</p><span class='time-left'>"+response.messages[key].date+"</span></div>";
-                $("#display").append(temp);
+                $("#display").append(temp);   // empty template which will be filled dynamically
             }
         },
         error: function(response){
             alert('An error occured')
         }
-    });
-},1000);
+    }); 
+},1000);     // repeat every second
 })
 
 
@@ -152,21 +154,25 @@ setInterval(function(){
 </body>
 
 <script type="text/javascript">
+      // When the form with id="post-form" is submitted...
   $(document).on('submit','#post-form',function(e){
-    e.preventDefault();
+    e.preventDefault();    // Prevents normal form submission (page reload)
 
+     // Ajax request begins
     $.ajax({
       type:'POST',
-      url:'/send',
+      url:'/send',    // must match a route in urls.py
       data:{
-          username:$('#username').val(),
-          room_id:$('#room_id').val(),
-          message:$('#message').val(),
+          username:$('#username').val(),    // get value from hidden input id="username"
+          room_id:$('#room_id').val(),      // get room id (hidden field)
+          message:$('#message').val(),       // get the message typed by user
         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
       },
-      success: function(data){
+      success: function(data){           // This runs when backend responds successfully, HttpResponse() from Django is exactly what triggers this.
       }
     });
+
+    // After sending, clear the message box so it's ready for next msg
     document.getElementById('message').value = ''
   });
 
